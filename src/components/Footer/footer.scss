@@ -1,0 +1,54 @@
+.footer {
+    background-color: #F6F7F9;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    h5 {
+        margin: 20px 0
+    }
+
+    ul {
+        li {
+            a {
+                color: #000;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .divider {
+        content: "";
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+
+    @media only screen and (max-width: 992px) {
+        position: relative;
+        padding-bottom: 55px;
+        .row {
+            flex-direction: column;
+
+            div {
+                text-align: center;
+            }
+        }
+
+        .footer-mobile {
+            flex-direction: column;
+            text-align: center;
+
+            ul {
+                align-self: center;
+            }
+        }
+
+    }
+}
+
+
