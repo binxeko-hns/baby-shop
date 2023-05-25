@@ -8,9 +8,11 @@ type Props = {
   onOpen?: Function
   onClose?: Function
   onRemoveItemCart?: Function
+  onIncreaseItemCart?: Function
+  onDecreaseItemCart?: Function
 };
 
-const Cart = ({ product = [], open = false, onOpen, onClose, onRemoveItemCart }: Props) => {
+const Cart = ({ product = [], open = false, onOpen, onClose, onRemoveItemCart, onDecreaseItemCart, onIncreaseItemCart }: Props) => {
   let totalPrice = 0
   for (let i = 0; i < product.length; i++) {
     totalPrice += product[i].price*product[i].quantity
@@ -58,14 +60,14 @@ const Cart = ({ product = [], open = false, onOpen, onClose, onRemoveItemCart }:
               </div>
               <div className="cart-action pt-2">
                 <div className="count">
-                  <button>-</button>
+                  <button onClick={() => onDecreaseItemCart?.(e)}>-</button>
                   <input
                     type="number"
                     id="number"
                     value={e?.quantity}
                     inputMode="numeric"
                   />
-                  <button>+</button>
+                  <button onClick={() => onIncreaseItemCart?.(e)}>+</button>
                 </div>
                 <span className="btn-remove" onClick={() => onRemoveItemCart?.(e)}>
                   <i className="fa-solid fa-trash"></i>Remove

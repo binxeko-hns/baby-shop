@@ -9,6 +9,7 @@ import useProductPage from "../hooks/useProductPage";
 import ProductList from "../../../components/ProductList/ProductList";
 import HomePageFooter from "../../../components/HomePageFooter/HomePageFooter";
 import HeaderMobile from "../../../components/Header/HeaderMobile";
+import Cart from "../../../components/Cart/Cart";
 
 const ProductPage = () => {
   const {
@@ -25,17 +26,26 @@ const ProductPage = () => {
     isOpenCart,
     handleCloseCart,
     handleOpenCart,
-    handleRemoveItemCart
+    handleRemoveItemCart,
+    handleIncreaseItemCart,
+    handleDecreaseItemCart,
   } = useProductPage();
   return (
     <>
-    <HeaderMobile />
+      <HeaderMobile onOpenCart={handleOpenCart} product={product} />
       <Header
         product={product}
         isOpenCart={isOpenCart}
-        onCloseCart={handleCloseCart}
         onOpenCart={handleOpenCart}
+      />
+      <Cart
+        product={product.cart}
+        open={isOpenCart}
+        onOpen={handleOpenCart}
+        onClose={handleCloseCart}
         onRemoveItemCart={handleRemoveItemCart}
+        onIncreaseItemCart={handleIncreaseItemCart}
+        onDecreaseItemCart={handleDecreaseItemCart}
       />
       <div className="product-page">
         <div className="main-detail">

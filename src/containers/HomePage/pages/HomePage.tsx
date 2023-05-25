@@ -11,6 +11,7 @@ import Footer from "../../../components/Footer/Footer";
 import ProductList from "../../../components/ProductList/ProductList";
 import useHomePage from "../hooks/useHomePage";
 import HeaderMobile from "../../../components/Header/HeaderMobile";
+import Cart from "../../../components/Cart/Cart";
 
 const HomePage = () => {
   const {
@@ -22,19 +23,28 @@ const HomePage = () => {
     handleOpenCart,
     handleCloseCart,
     handleRemoveItemCart,
+    handleIncreaseItemCart,
+    handleDecreaseItemCart
   } = useHomePage();
   useEffect(() => {
     document.title = "BeBaby Shop";
   }, []);
   return (
     <>
-      <HeaderMobile />
+      <HeaderMobile onOpenCart={handleOpenCart} product={product} />
       <Header
         product={product}
         isOpenCart={isOpenCart}
         onOpenCart={handleOpenCart}
-        onCloseCart={handleCloseCart}
+      />
+      <Cart
+        product={product.cart}
+        open={isOpenCart}
+        onOpen={handleOpenCart}
+        onClose={handleCloseCart}
         onRemoveItemCart={handleRemoveItemCart}
+        onIncreaseItemCart={handleIncreaseItemCart}
+        onDecreaseItemCart={handleDecreaseItemCart}
       />
       <div className="homepage">
         <div className="homepage-wrapper">

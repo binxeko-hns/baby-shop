@@ -76,6 +76,14 @@ const useProductPage = () => {
     setProduct({ type: "ADD_CART_ITEM", item: {...item, quantity: quantity} });
   };
 
+  const handleIncreaseItemCart = (item: CartItem) => {
+    setProduct({type: "INCREASE_QUANTITY", item: item})
+  }
+
+  const handleDecreaseItemCart = (item: CartItem) => {
+    setProduct({type: "DECREASE_QUANTITY", item: item})
+  }
+
   return {
     item,
     color,
@@ -90,7 +98,9 @@ const useProductPage = () => {
     isOpenCart,
     handleCloseCart,
     handleOpenCart,
-    handleRemoveItemCart
+    handleRemoveItemCart,
+    handleIncreaseItemCart,
+    handleDecreaseItemCart
   };
 };
 

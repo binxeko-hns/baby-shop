@@ -64,27 +64,25 @@ const productReducer = (
 
       return { ...state, cart: [..._cart] };
     case "INCREASE_QUANTITY":
-      currentItem = _cart.find(
+      let itemIncre = _cart.find(
         (e) =>
-          e.id === action.item.id &&
+          e?.id === action.item.id &&
           e.color.toLowerCase() === action.item.color.toLowerCase()
       );
-      if (!!currentItem) {
-        currentItem.quantity++;
-        _cart = [..._cart, currentItem];
+      if (!!itemIncre) {
+        itemIncre.quantity++;
       }
       return { ...state, cart: _cart };
     case "DECREASE_QUANTITY":
-      currentItem = _cart.find(
+      let itemDecre = _cart.find(
         (e) =>
           e.id === action.item.id &&
           e.color.toLowerCase() === action.item.color.toLowerCase()
       );
-      if (!!currentItem) {
-        currentItem.quantity--;
-        _cart = [..._cart, currentItem];
+      if (!!itemDecre) {
+        itemDecre.quantity--;
       }
-      return { ...state, cart: _cart };
+      return { ...state, cart: _cart};
     default:
       return state;
   }

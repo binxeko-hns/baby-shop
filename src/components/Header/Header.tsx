@@ -6,24 +6,18 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { useNavigate } from "react-router-dom";
-import Cart from "../Cart/Cart";
 import { InitValueType } from "../../configs/types";
 
-type Props = {
+type PropsType = {
   product: InitValueType;
   isOpenCart: boolean;
   onOpenCart: Function;
-  onCloseCart: Function;
-  onRemoveItemCart: Function;
 };
 
 const Header = ({
   product,
-  isOpenCart,
   onOpenCart,
-  onCloseCart,
-  onRemoveItemCart,
-}: Props) => {
+}: PropsType) => {
   const navigate = useNavigate();
   const [isScoll, setIsScroll] = useState<boolean>(false);
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
@@ -149,13 +143,6 @@ const Header = ({
               <div className="icon-header">
                 <ShoppingBagOutlinedIcon onClick={() => onOpenCart()} />
                 <span className="wishlist-cart-count">{cartCount || 0}</span>
-                <Cart
-                  product={product.cart}
-                  open={isOpenCart}
-                  onOpen={onOpenCart}
-                  onClose={onCloseCart}
-                  onRemoveItemCart={onRemoveItemCart}
-                />
               </div>
               <div className="cost">
                 <span>$0.00</span>
