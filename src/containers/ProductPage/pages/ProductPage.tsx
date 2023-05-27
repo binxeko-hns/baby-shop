@@ -10,6 +10,10 @@ import ProductList from "../../../components/ProductList/ProductList";
 import HomePageFooter from "../../../components/HomePageFooter/HomePageFooter";
 import HeaderMobile from "../../../components/Header/HeaderMobile";
 import Cart from "../../../components/Cart/Cart";
+import Select, { selectClasses } from "@mui/joy/Select";
+import Option from "@mui/joy/Option";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import RulerTable from "../../../components/RulerTable/RulerTable";
 
 const ProductPage = () => {
   const {
@@ -29,6 +33,9 @@ const ProductPage = () => {
     handleRemoveItemCart,
     handleIncreaseItemCart,
     handleDecreaseItemCart,
+    handleChooseHeight,
+    isDisableAdd,
+    handleChooseAge,
   } = useProductPage();
   return (
     <>
@@ -72,20 +79,70 @@ const ProductPage = () => {
                   </li>
                 </ul>
                 <h6>Composition: Main material: 95% Cotton, 5% Polyester</h6>
+                <RulerTable />
                 <h3 className="price">${item?.price}</h3>
 
-                <ul className="color">
-                  {item?.colorList?.map((i) => (
-                    <li>
-                      <a
-                        onClick={() => handleChooseColor(i)}
-                        className={color === i.code ? "active" : ""}
-                      >
-                        <span style={{ backgroundColor: `${i.code}` }}></span>
-                      </a>
-                    </li>
-                  )) || <></>}
-                </ul>
+                {!!item.heightList && item.heightList.length > 0 && (
+                  <div className="height param-box">
+                    <label>Height</label>
+                    <ul>
+                      {item.heightList.map((i) => (
+                        <li onClick={() => handleChooseHeight(i)}>
+                          <span className={item.height === i ? "active" : ""}>
+                            {i}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {!!item.ageList && (
+                  <div className="age param-box">
+                    <label>Age</label>
+                    <Select
+                      placeholder="Choose an option"
+                      indicator={<KeyboardArrowDown />}
+                      sx={{
+                        width: 240,
+                        [`& .${selectClasses.indicator}`]: {
+                          transition: "0.2s",
+                          [`&.${selectClasses.expanded}`]: {
+                            transform: "rotate(-180deg)",
+                          },
+                        },
+                      }}
+                      onChange={handleChooseAge}
+                    >
+                      <Option value="" disabled>
+                        Choose an option
+                      </Option>
+                      {item.ageList?.map((i) => (
+                        <Option value={i}>{i}</Option>
+                      ))}
+                    </Select>
+                  </div>
+                )}
+
+                {item?.colorList.length > 0 && (
+                  <div className="color param-box">
+                    <label>Color</label>
+                    <ul>
+                      {item?.colorList?.map((i) => (
+                        <li>
+                          <a
+                            onClick={() => handleChooseColor(i)}
+                            className={color === i.code ? "active" : ""}
+                          >
+                            <span
+                              style={{ backgroundColor: `${i.code}` }}
+                            ></span>
+                          </a>
+                        </li>
+                      )) || <></>}
+                    </ul>
+                  </div>
+                )}
 
                 <div className="add-cart">
                   <div className="count">
@@ -99,7 +156,13 @@ const ProductPage = () => {
                     <button onClick={handleIncreaseValue}>+</button>
                   </div>
                   <div className="add">
-                    <button onClick={handleAddToCart}>Add to cart</button>
+                    <button
+                      onClick={handleAddToCart}
+                      disabled={isDisableAdd}
+                      className={isDisableAdd ? "disable-btn" : ""}
+                    >
+                      Add to cart
+                    </button>
                   </div>
                 </div>
                 <div className="stacked-meta">
@@ -145,8 +208,16 @@ const ProductPage = () => {
               </div>
             </div>
           </div>
+          <div className="text-center mt-5">
+            <a href="#anchor-link-btns">
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ cursor: "pointer", opacity: "0.5", color: "#000" }}
+              ></i>
+            </a>
+          </div>
         </div>
-        <div className="anchor-link-btns">
+        <div className="anchor-link-btns" id="anchor-link-btns">
           <div className="wrapper">
             <a href="#description">
               <span>Description</span>
@@ -168,8 +239,8 @@ const ProductPage = () => {
               <br />
               malesuada ultricies. Curabitur et.
             </h5>
-            <div className="row mt-5">
-              <div className="col text-end">
+            <div className="row mt-5" style={{ padding: "0 25%" }}>
+              <div className="col text-center">
                 <h6>ENVIRONMENTALLY FRIENDLY</h6>
                 <p>
                   <span className="sun">
@@ -178,10 +249,10 @@ const ProductPage = () => {
                   <span className="sun">
                     <i className="fa-solid fa-sun"></i>
                   </span>
-                  <span className="sun">
+                  <span className="sun unactive">
                     <i className="fa-solid fa-sun"></i>
                   </span>
-                  <span className="sun">
+                  <span className="sun unactive">
                     <i className="fa-solid fa-sun"></i>
                   </span>
                 </p>
@@ -196,12 +267,12 @@ const ProductPage = () => {
                   <span className="hand">
                     <i className="fa-solid fa-hands-bubbles"></i>
                   </span>
-                  <span className="hand">
+                  <span className="hand unactive">
                     <i className="fa-solid fa-hands-bubbles"></i>
                   </span>
                 </p>
               </div>
-              <div className="col">
+              <div className="col text-center">
                 <h6>WARMNESS</h6>
                 <p>
                   <span className="burn">
@@ -213,7 +284,7 @@ const ProductPage = () => {
                   <span className="burn">
                     <i className="fa-solid fa-fire-flame-simple"></i>
                   </span>
-                  <span className="burn">
+                  <span className="burn unactive">
                     <i className="fa-solid fa-fire-flame-simple"></i>
                   </span>
                 </p>
@@ -228,7 +299,7 @@ const ProductPage = () => {
                   <span className="gem">
                     <i className="fa-solid fa-gem"></i>
                   </span>
-                  <span className="gem">
+                  <span className="gem unactive">
                     <i className="fa-solid fa-gem"></i>
                   </span>
                 </p>
@@ -435,7 +506,10 @@ const ProductPage = () => {
                 </div>
               </div>
               <div className="divider-small">
-                <span></span>
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMzAiPjxwYXRoIGQ9Ik0wLDBDMTEuMTMsMCwxNi44LDUuOTQsMjEuOCwxMS4xOWM0LjUxLDQuNzMsOC4wOCw4LjQ3LDE1LjcsOC40N3MxMS4xOS0zLjc0LDE1LjctOC40N0M1OC4yLDUuOTQsNjMuODcsMCw3NSwwUzkxLjc5LDUuOTQsOTYuNzksMTEuMTljNC41Miw0LjczLDguMDgsOC40NywxNS43LDguNDdzMTEuMTktMy43NCwxNS43MS04LjQ3QzEzMy4yLDUuOTQsMTM4Ljg3LDAsMTUwLDBzMTYuOCw1Ljk0LDIxLjgsMTEuMTljNC41MSw0LjczLDguMDgsOC40NywxNS43LDguNDdzMTEuMTktMy43NCwxNS43MS04LjQ3QzIwOC4yLDUuOTQsMjEzLjg3LDAsMjI1LDBzMTYuOCw1Ljk0LDIxLjgsMTEuMTljNC41Miw0LjczLDguMDgsOC40NywxNS43LDguNDdzMTEuMTktMy43NCwxNS43MS04LjQ3QzI4My4yLDUuOTQsMjg4Ljg3LDAsMzAwLDBWMTAuMzRjLTcuNjIsMC0xMS4xOSwzLjc0LTE1LjcxLDguNDctNSw1LjI1LTEwLjY3LDExLjE5LTIxLjgsMTEuMTlTMjQ1LjcsMjQuMDYsMjQwLjcsMTguODFjLTQuNTItNC43My04LjA4LTguNDctMTUuNzEtOC40N3MtMTEuMTksMy43NC0xNS43LDguNDdjLTUsNS4yNS0xMC42NywxMS4xOS0yMS44LDExLjE5UzE3MC43LDI0LjA2LDE2NS43LDE4LjgxYy00LjUyLTQuNzMtOC4wOS04LjQ3LTE1LjcxLTguNDdzLTExLjE5LDMuNzQtMTUuNyw4LjQ3Yy01LDUuMjUtMTAuNjcsMTEuMTktMjEuOCwxMS4xOVM5NS43LDI0LjA2LDkwLjcsMTguODFjLTQuNTEtNC43My04LjA4LTguNDctMTUuNy04LjQ3cy0xMS4xOSwzLjc0LTE1LjcsOC40N0M1NC4zLDI0LjA2LDQ4LjYzLDMwLDM3LjUsMzBTMjAuNywyNC4wNiwxNS43LDE4LjgxQzExLjE5LDE0LjA4LDcuNjIsMTAuMzQsMCwxMC4zNFoiLz48L3N2Zz4="
+                  alt=""
+                />
               </div>
               <h3 id="additional-info">Additional information</h3>
               <div className="additional">
@@ -448,7 +522,10 @@ const ProductPage = () => {
                 </span>
               </div>
               <div className="divider-small">
-                <span></span>
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMzAiPjxwYXRoIGQ9Ik0wLDBDMTEuMTMsMCwxNi44LDUuOTQsMjEuOCwxMS4xOWM0LjUxLDQuNzMsOC4wOCw4LjQ3LDE1LjcsOC40N3MxMS4xOS0zLjc0LDE1LjctOC40N0M1OC4yLDUuOTQsNjMuODcsMCw3NSwwUzkxLjc5LDUuOTQsOTYuNzksMTEuMTljNC41Miw0LjczLDguMDgsOC40NywxNS43LDguNDdzMTEuMTktMy43NCwxNS43MS04LjQ3QzEzMy4yLDUuOTQsMTM4Ljg3LDAsMTUwLDBzMTYuOCw1Ljk0LDIxLjgsMTEuMTljNC41MSw0LjczLDguMDgsOC40NywxNS43LDguNDdzMTEuMTktMy43NCwxNS43MS04LjQ3QzIwOC4yLDUuOTQsMjEzLjg3LDAsMjI1LDBzMTYuOCw1Ljk0LDIxLjgsMTEuMTljNC41Miw0LjczLDguMDgsOC40NywxNS43LDguNDdzMTEuMTktMy43NCwxNS43MS04LjQ3QzI4My4yLDUuOTQsMjg4Ljg3LDAsMzAwLDBWMTAuMzRjLTcuNjIsMC0xMS4xOSwzLjc0LTE1LjcxLDguNDctNSw1LjI1LTEwLjY3LDExLjE5LTIxLjgsMTEuMTlTMjQ1LjcsMjQuMDYsMjQwLjcsMTguODFjLTQuNTItNC43My04LjA4LTguNDctMTUuNzEtOC40N3MtMTEuMTksMy43NC0xNS43LDguNDdjLTUsNS4yNS0xMC42NywxMS4xOS0yMS44LDExLjE5UzE3MC43LDI0LjA2LDE2NS43LDE4LjgxYy00LjUyLTQuNzMtOC4wOS04LjQ3LTE1LjcxLTguNDdzLTExLjE5LDMuNzQtMTUuNyw4LjQ3Yy01LDUuMjUtMTAuNjcsMTEuMTktMjEuOCwxMS4xOVM5NS43LDI0LjA2LDkwLjcsMTguODFjLTQuNTEtNC43My04LjA4LTguNDctMTUuNy04LjQ3cy0xMS4xOSwzLjc0LTE1LjcsOC40N0M1NC4zLDI0LjA2LDQ4LjYzLDMwLDM3LjUsMzBTMjAuNywyNC4wNiwxNS43LDE4LjgxQzExLjE5LDE0LjA4LDcuNjIsMTAuMzQsMCwxMC4zNFoiLz48L3N2Zz4="
+                  alt=""
+                />
               </div>
               <h3 id="review">Reviews</h3>
               <p>There are no reviews yet.</p>
@@ -458,7 +535,10 @@ const ProductPage = () => {
               <br />
               <span>You must be logged in to post a review.</span>
               <div className="divider-small">
-                <span></span>
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMzAiPjxwYXRoIGQ9Ik0wLDBDMTEuMTMsMCwxNi44LDUuOTQsMjEuOCwxMS4xOWM0LjUxLDQuNzMsOC4wOCw4LjQ3LDE1LjcsOC40N3MxMS4xOS0zLjc0LDE1LjctOC40N0M1OC4yLDUuOTQsNjMuODcsMCw3NSwwUzkxLjc5LDUuOTQsOTYuNzksMTEuMTljNC41Miw0LjczLDguMDgsOC40NywxNS43LDguNDdzMTEuMTktMy43NCwxNS43MS04LjQ3QzEzMy4yLDUuOTQsMTM4Ljg3LDAsMTUwLDBzMTYuOCw1Ljk0LDIxLjgsMTEuMTljNC41MSw0LjczLDguMDgsOC40NywxNS43LDguNDdzMTEuMTktMy43NCwxNS43MS04LjQ3QzIwOC4yLDUuOTQsMjEzLjg3LDAsMjI1LDBzMTYuOCw1Ljk0LDIxLjgsMTEuMTljNC41Miw0LjczLDguMDgsOC40NywxNS43LDguNDdzMTEuMTktMy43NCwxNS43MS04LjQ3QzI4My4yLDUuOTQsMjg4Ljg3LDAsMzAwLDBWMTAuMzRjLTcuNjIsMC0xMS4xOSwzLjc0LTE1LjcxLDguNDctNSw1LjI1LTEwLjY3LDExLjE5LTIxLjgsMTEuMTlTMjQ1LjcsMjQuMDYsMjQwLjcsMTguODFjLTQuNTItNC43My04LjA4LTguNDctMTUuNzEtOC40N3MtMTEuMTksMy43NC0xNS43LDguNDdjLTUsNS4yNS0xMC42NywxMS4xOS0yMS44LDExLjE5UzE3MC43LDI0LjA2LDE2NS43LDE4LjgxYy00LjUyLTQuNzMtOC4wOS04LjQ3LTE1LjcxLTguNDdzLTExLjE5LDMuNzQtMTUuNyw4LjQ3Yy01LDUuMjUtMTAuNjcsMTEuMTktMjEuOCwxMS4xOVM5NS43LDI0LjA2LDkwLjcsMTguODFjLTQuNTEtNC43My04LjA4LTguNDctMTUuNy04LjQ3cy0xMS4xOSwzLjc0LTE1LjcsOC40N0M1NC4zLDI0LjA2LDQ4LjYzLDMwLDM3LjUsMzBTMjAuNywyNC4wNiwxNS43LDE4LjgxQzExLjE5LDE0LjA4LDcuNjIsMTAuMzQsMCwxMC4zNFoiLz48L3N2Zz4="
+                  alt=""
+                />
               </div>
             </div>
             <div className="related-product">

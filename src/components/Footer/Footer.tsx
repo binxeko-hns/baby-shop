@@ -12,10 +12,10 @@ const Footer = () => {
                 alt=""
               />
             </div>
-            <p className="mt-4">
+            <p className="mt-4 mb-4">
               In the BeFriends Club you can take advantage of attractive offers
             </p>
-            <a href="#" className="button-black m-0">
+            <a href="#" className="button-black m-0 ">
               Join now
             </a>
             <div className="img mt-5">

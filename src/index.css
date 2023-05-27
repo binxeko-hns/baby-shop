@@ -9,7 +9,7 @@
 ul {
   list-style: none;
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 a {
@@ -19,4 +19,45 @@ a {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.modal-custom {
+  padding: 25px;
+}
+
+.modal-custom .modal-custom-header {
+  font-family: "Bodoni Moda", serif;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;;
+}
+
+.ruler-table table tr th {
+  color: #444444;
+  padding: 10px;
+  font-weight: 700;
+  border-width: 1px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #f9f9f9;
+  border-color: rgba(0,0,0,.08);
+}
+
+.ruler-table table tr:nth-child(2n) td {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+
+.ruler-table table tr td {
+  border-color: rgba(0,0,0,.08);
+  padding: 10px;
+  text-align: center;
+  border-width: 1px;
+  vertical-align: top;
+}
+
+
+.MuiDialog-paper {
+  max-width: 100% !important;
 }

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap');
+$black-color: #171b20;
+$grey-color: #6a717c;
 
 a.button-black {
     text-transform: uppercase;
@@ -14,7 +16,7 @@ a.button-black {
     &:hover {
         background-color: #3e4145;
     }
-    
+
 }
 
 a.button-grey {
@@ -161,13 +163,55 @@ a.button-yellow {
                         }
 
                         a {
+                            position: relative;
                             font-size: 15px;
                             font-weight: 700;
                             margin: 0 15px;
                             padding: 12px 10px 10px;
                             color: #000;
-                            border-bottom: 3px solid rgba(0, 0, 0, 0.1);
-                            ;
+
+                            span {
+                                &::before {
+                                    background: rgba(0, 0, 0, 0.1);
+                                    transition: transform .3s;
+                                    position: absolute;
+                                    top: 100%;
+                                    width: 100%;
+                                    left: 0;
+                                    height: 3px;
+                                    content: "";
+                                    transform: scale(0.85);
+                                }
+
+                                &::after {
+                                    background: rgba(0, 0, 0, 0.1);
+                                    opacity: 0;
+                                    transition: top 0.3s, opacity 0.3s, transform .3s;
+                                    position: absolute;
+                                    top: 100%;
+                                    width: 100%;
+                                    left: 0;
+                                    height: 3px;
+                                    content: "";
+                                    transform: scale(0.85);
+                                }
+                            }
+
+                            &:hover {
+                                span {
+                                    &::before {
+                                        background: #171b20;
+                                        transform: scale(1);
+                                    }
+
+                                    &::after {
+                                        background: #171b20;
+                                        transform: scale(1);
+                                        top: 0;
+                                        opacity: 1;
+                                    }
+                                }
+                            }
                         }
                     }
 
@@ -476,17 +520,44 @@ a.button-yellow {
                         padding: 20px;
 
                         a {
-                            font-family: "Bodoni Moda", serif;
-                            color: #000;
-                            opacity: 0.5;
+                            display: inline-block;
+                            color: $black-color;
                             font-size: 24px;
-                            transition: 0.1s;
+                            position: relative;
+
+                            span {
+                                font-family: "Bodoni Moda", serif;
+                                display: block;
+                                opacity: .5;
+                                transition: opacity 0.2s, color 0.2s, transform 0.2s cubic-bezier(.33, 0, 0, 1);
+                            }
+
+                            i {
+                                transition: opacity 0.2s, color 0.2s, transform 0.2s cubic-bezier(.33, 0, 0, 1);
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                position: absolute;
+                                top: 0;
+                                left: 50%;
+                                height: 80%;
+                                transform: translate(-50%, 0);
+                                opacity: 0
+                            }
 
                             &:hover {
-                                opacity: 1;
-                                transform: scale(1.15);
-                                transition: 0.1s;
+                                span {
+                                    color: $black-color;
+                                    transform: translateY(-60%);
+                                    opacity: 1;
+                                }
+                                
+                                i {
+                                    transform: translate(-50%, 50%);
+                                    opacity: 1;
+                                }
                             }
+
                         }
                     }
                 }
@@ -606,6 +677,7 @@ a.button-yellow {
 .home-page-footer {
     @media only screen and (max-width: 768px) {
         display: block;
+
         div {
             width: 100%;
             justify-content: center;

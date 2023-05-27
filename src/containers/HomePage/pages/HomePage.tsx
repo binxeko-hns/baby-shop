@@ -24,7 +24,7 @@ const HomePage = () => {
     handleCloseCart,
     handleRemoveItemCart,
     handleIncreaseItemCart,
-    handleDecreaseItemCart
+    handleDecreaseItemCart,
   } = useHomePage();
   useEffect(() => {
     document.title = "BeBaby Shop";
@@ -91,9 +91,15 @@ const HomePage = () => {
                     Select your <br />
                     child's age
                   </h3>
-                  <a href="#">0 - 2</a>
-                  <a href="#">2- 4 </a>
-                  <a href="#">4- 6</a>
+                  <a href="#">
+                    <span>0 - 2</span>
+                  </a>
+                  <a href="#">
+                    <span>2- 4</span>
+                  </a>
+                  <a href="#">
+                    <span>4- 6</span>
+                  </a>
                 </div>
                 <div className="promo-item promo-collection">
                   <div className="item">
@@ -102,7 +108,9 @@ const HomePage = () => {
                       Duvet Cover Set <br />
                       <b>-40% off</b>
                     </h3>
-                    <a href="#">VIEW COLLECTION</a>
+                    <a href="#">
+                      <span>VIEW COLLECTION</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -113,42 +121,66 @@ const HomePage = () => {
               <div className="product-type-list">
                 <div className="product-type-wrapper">
                   <div className="type-box">
-                    <a href="#">Bed Sets</a>
+                    <a href="#">
+                      <span>Bed Sets</span>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
                 <div className="product-type-wrapper">
                   <div className="type-box">
-                    <a href="#">Sleepwear</a>
+                    <a href="#">
+                      <span>Sleepwear</span>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
                 <div className="product-type-wrapper">
                   <div className="type-box">
-                    <a href="#">Pyjamas</a>
+                    <a href="#">
+                      <span>Pyjamas</span>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
                 <div className="product-type-wrapper">
                   <div className="type-box">
-                    <a href="#">Nighties</a>
+                    <a href="#">
+                      <span>Nighties</span>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
                 <div className="product-type-wrapper">
                   <div className="type-box">
-                    <a href="#">Bathrobes</a>
+                    <a href="#">
+                      <span>Bathrobes</span>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
                 <div className="product-type-wrapper">
                   <div className="type-box">
-                    <a href="#">Classic</a>
+                    <a href="#">
+                      <span>Classic</span>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
                 <div className="product-type-wrapper">
                   <div className="type-box">
-                    <a href="#">Fancy</a>
+                    <a href="#">
+                      <span>Fancy</span>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
                 <div className="product-type-wrapper">
                   <div className="type-box">
-                    <a href="#">More products</a>
+                    <a href="#">
+                      <span>More products</span>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
               </div>

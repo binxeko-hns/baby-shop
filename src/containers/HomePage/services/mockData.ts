@@ -14,6 +14,8 @@ export const mockData: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"],
+    height: [50, 54, 58, 62, 68, 74]
   },
   {
     id: 2,
@@ -28,6 +30,9 @@ export const mockData: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"],
+    height: [50, 54, 58, 62, 68, 74]
+
   },
   {
     id: 3,
@@ -42,6 +47,9 @@ export const mockData: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"],
+    height: [50, 54, 58, 62, 68, 74]
+
   },
   {
     id: 4,
@@ -56,6 +64,9 @@ export const mockData: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"],
+    height: [50, 54, 58, 62, 68, 74]
+
   },
   {
     id: 5,
@@ -84,6 +95,8 @@ export const mockData: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"]
+
   },
   {
     id: 7,
@@ -98,6 +111,9 @@ export const mockData: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"],
+    height: [50, 54, 58, 62, 68, 74]
+
   },
   {
     id: 8,
@@ -112,6 +128,7 @@ export const mockData: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    height: [50, 54, 58, 62, 68, 74]
   },
 ];
 
@@ -129,6 +146,9 @@ export const mockBestSellers: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"],
+    height: [50, 54, 58, 62, 68, 74]
+
   },
   {
     id: 2,
@@ -143,6 +163,9 @@ export const mockBestSellers: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"],
+    height: [50, 54, 58, 62, 68, 74]
+
   },
   {
     id: 3,
@@ -157,6 +180,7 @@ export const mockBestSellers: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    height: [50, 54, 58, 62, 68, 74]
   },
   {
     id: 4,
@@ -171,6 +195,8 @@ export const mockBestSellers: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"]
+
   },
 ];
 
@@ -188,6 +214,9 @@ export const mockRelatedProduct: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"],
+    height: [50, 54, 58, 62, 68, 74]
+
   },
   {
     id: 2,
@@ -202,6 +231,7 @@ export const mockRelatedProduct: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    height: [50, 54, 58, 62, 68, 74]
   },
   {
     id: 3,
@@ -216,6 +246,9 @@ export const mockRelatedProduct: ProductType[] = [
       { name: "Purple", code: "#5a3652" },
       { name: "Yellow", code: "#edc582" },
     ],
+    age: ["0-2 years", "2-4 years", "4-6 years"],
+    height: [50, 54, 58, 62, 68, 74]
+
   },
   {
     id: 4,
