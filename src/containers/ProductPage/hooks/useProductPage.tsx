@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 const useProductPage = () => {
   const { product, setProduct } = useProduct();
   const [quantity, setQuantity] = useState<number>(1);
-  console.log({ quantity });
   const { productId } = useParams<string>();
   const [item, setItem] = useState<CartItem>({
     id: 0,
