@@ -28,6 +28,7 @@ const ProductModal = ({
   quantity,
   isDisableAdd,
 }: PropsType) => {
+  console.log({item})
   return (
     <Dialog open={open} onClose={() => onClose?.()}>
       <div className="product-modal">
@@ -78,7 +79,7 @@ const ProductModal = ({
             </div>
           )}
 
-          {!!item?.ageList && (
+          {!!item?.ageList && item.ageList.length > 0 && (
             <div className="age param-box">
               <label>Age</label>
               <Select

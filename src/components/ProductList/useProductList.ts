@@ -7,7 +7,6 @@ import {
   EventModalType,
 } from "../../configs/types";
 import { useProduct } from "../../context/product.context";
-import { SelectChangeEvent } from "@mui/material";
 
 const useProductList = () => {
   const navigate = useNavigate();
