@@ -206,10 +206,13 @@ $grey-color: #6a717c;
             }
         }
 
+        .image-wrapper {
+            width: 15%;
+        }
+
         .slider-image {
             width: 50%;
             text-align: center;
-            margin: auto;
         }
 
         .stacked-meta {

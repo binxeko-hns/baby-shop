@@ -44,6 +44,7 @@ const ProductPage = () => {
         product={product}
         isOpenCart={isOpenCart}
         onOpenCart={handleOpenCart}
+        page={"products"}
       />
       <Cart
         product={product.cart}
@@ -186,7 +187,11 @@ const ProductPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="col">
+              <div className="col d-flex align-items-center justify-content-center">
+                <div className="image-wrapper">
+                  <img src={item?.imageFront} alt="" />
+                  <img src={item?.imageBack} alt="" />
+                </div>
                 <div className="slider-image">
                   <Swiper
                     navigation={true}

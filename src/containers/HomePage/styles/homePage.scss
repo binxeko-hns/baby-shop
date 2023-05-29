@@ -551,7 +551,7 @@ a.button-yellow {
                                     transform: translateY(-60%);
                                     opacity: 1;
                                 }
-                                
+
                                 i {
                                     transform: translate(-50%, 50%);
                                     opacity: 1;
@@ -605,6 +605,90 @@ a.button-yellow {
 
             .blogpost-wrapper {
                 padding-top: 40px;
+
+                .blog-post {
+                    position: relative;
+
+                    .photo-wrapper {
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            z-index: 2;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: rgba(0, 0, 0, .2);
+                            opacity: 0;
+                            transition: all 0.6s ease-out;
+                        }
+                    }
+
+                    .desc-wrapper {
+                        position: absolute;
+                        left: 0;
+                        bottom: -20px;
+                        width: 100%;
+                        z-index: 4;
+                        transition: all 0.4s ease-out;
+
+                        .desc {
+                            background-color: url(https://themes.muffingroup.com/be/babyshop/wp-content/themes/betheme/images/blog_masonry_tile_gradient.png) top left repeat-x;
+                            padding: 70px 25px 30px;
+                            background-position-y: -1px;
+
+                            .post-meta {
+                                color: rgba(255, 255, 255, .7);
+
+                                .author {
+                                    a {
+                                        color: rgba(255, 255, 255, .7);
+                                    }
+                                }
+
+                                .date {}
+                            }
+
+                            .post-title {
+                                font-size: 30px;
+                                line-height: 40px;
+                                font-weight: 400;
+
+                                h3 {
+                                    a {
+                                        color: #fff
+                                    }
+                                }
+
+                                &::after {
+                                    background-color: #ffffff;
+                                    content: "";
+                                    display: block;
+                                    height: 3px;
+                                    margin-top: 20px;
+                                    width: 0;
+                                    transition: all 0.4s ease-out;
+                                }
+
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        .photo-wrapper::after {
+                            opacity: 1;
+                        }
+
+                        .desc-wrapper {
+                            transform: translateY(-20px);
+                            .desc {
+                                .post-title::after {
+                                    width: 20%;
+                                }
+                            }
+                        }
+                    }
+                }
 
                 @media only screen and (max-width: 768px) {
                     .row {

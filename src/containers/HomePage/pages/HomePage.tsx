@@ -36,6 +36,7 @@ const HomePage = () => {
         product={product}
         isOpenCart={isOpenCart}
         onOpenCart={handleOpenCart}
+        page={"home"}
       />
       <Cart
         product={product.cart}
@@ -375,26 +376,94 @@ const HomePage = () => {
               </div>
               <div className="blogpost-wrapper">
                 <div className="row">
-                  <div className="col-8 p-0">
-                    <div className="">
+                  <div className="col-8 p-0 blog-post">
+                    <div className="photo-wrapper">
                       <img
                         src="./images/babyshop-blog-pic1-1200x900.webp"
                         alt=""
                       />
                     </div>
+                    <div className="desc-wrapper">
+                      <div className="desc">
+                        <div className="post-meta">
+                          <span className="author me-1">
+                            <i className="fa-solid fa-user me-1"></i>
+                            <a href="#">Muffin group</a>
+                          </span>
+                          <span className="date">
+                            <span className="label me-1">on</span>
+                            <i className="fa-solid fa-clock me-1"></i>
+                            <span className="post-date">October 11, 2021</span>
+                          </span>
+                        </div>
+                        <div className="post-title">
+                          <h3>
+                            <a href="">Tempor diam pede cursus vitae</a>
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div className="col-4 p-0">
-                    <div>
-                      <img
-                        src="./images/babyshop-blog-pic2-1200x900.webp"
-                        alt=""
-                      />
+                    <div className="blog-post">
+                      <div className="photo-wrapper">
+                        <img
+                          src="https://themes.muffingroup.com/be/babyshop/wp-content/uploads/2021/10/babyshop-blog-pic2-1200x900.webp"
+                          alt=""
+                        />
+                      </div>
+                      <div className="desc-wrapper">
+                        <div className="desc">
+                          <div className="post-meta">
+                            <span className="author me-1">
+                              <i className="fa-solid fa-user me-1"></i>
+                              <a href="#">Muffin group</a>
+                            </span>
+                            <span className="date">
+                              <span className="label me-1">on</span>
+                              <i className="fa-solid fa-clock me-1"></i>
+                              <span className="post-date">
+                                October 11, 2021
+                              </span>
+                            </span>
+                          </div>
+                          <div className="post-title">
+                            <h3>
+                              <a href="">Tempor diam pede cursus vitae</a>
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <img
-                        src="./images/babyshop-blog-pic3-1200x900.webp"
-                        alt=""
-                      />
+                    <div className="blog-post">
+                      <div className="photo-wrapper">
+                        <img
+                          src="https://themes.muffingroup.com/be/babyshop/wp-content/uploads/2021/10/babyshop-blog-pic3-1200x900.webp"
+                          alt=""
+                        />
+                      </div>
+                      <div className="desc-wrapper">
+                        <div className="desc">
+                          <div className="post-meta">
+                            <span className="author me-1">
+                              <i className="fa-solid fa-user me-1"></i>
+                              <a href="#">Muffin group</a>
+                            </span>
+                            <span className="date">
+                              <span className="label me-1">on</span>
+                              <i className="fa-solid fa-clock me-1"></i>
+                              <span className="post-date">
+                                October 11, 2021
+                              </span>
+                            </span>
+                          </div>
+                          <div className="post-title">
+                            <h3>
+                              <a href="">Tempor diam pede cursus vitae</a>
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -12,11 +12,13 @@ type PropsType = {
   product: InitValueType;
   isOpenCart: boolean;
   onOpenCart: Function;
+  page: string
 };
 
 const Header = ({
   product,
   onOpenCart,
+  page
 }: PropsType) => {
   const navigate = useNavigate();
   const [isScoll, setIsScroll] = useState<boolean>(false);
@@ -66,10 +68,10 @@ const Header = ({
           {screenWidth > 1199 ? (
             <div className="nav-menu">
               <ul className="menu">
-                <li className="active">
+                <li className={page === "home" ? "active" : ""} onClick={() => navigate("/")}>
                   <a href="#">home</a>
                 </li>
-                <li>
+                <li className={page === "products" ? "active" : ""}>
                   <a href="#">our products</a>
                 </li>
                 <li>
