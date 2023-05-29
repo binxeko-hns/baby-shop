@@ -299,6 +299,12 @@ $grey-color: #6a717c;
                 }
             }
         }
+
+        @media only screen and (max-width: 768px) {
+            .row {
+                display: block;
+            }
+        }
     }
 
     .anchor-link-btns {

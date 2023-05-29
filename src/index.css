@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
 * {
   padding: 0;
   margin: 0;
@@ -16,7 +18,7 @@ h6::selection,
 span::selection,
 a::selection,
 br::selection {
-  background-color: #EAC989;
+  background-color: #eac989;
 }
 
 ul {
@@ -71,4 +73,25 @@ img {
 
 .MuiDialog-paper {
   max-width: 100% !important;
+}
+
+.image-gallery-thumbnails-container {
+  transform: none !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  .image-gallery-content {
+    display: flex;
+  }
+
+  .image-gallery-content .image-gallery-thumbnails-wrapper,
+  .image-gallery-content .image-gallery-thumbnails-wrapper div {
+    width: 100px !important;
+    padding-top: 0px !important;
+  }
+
+  .image-gallery-slide-wrapper,
+  .image-gallery-slide-wrapper div {
+    padding-top: 0px !important;
+  }
 }

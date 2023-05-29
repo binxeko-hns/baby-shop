@@ -14,6 +14,7 @@ import Select, { selectClasses } from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import RulerTable from "../../../components/RulerTable/RulerTable";
+import ImageGallery from "react-image-gallery";
 
 const ProductPage = () => {
   const {
@@ -187,29 +188,18 @@ const ProductPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="col d-flex align-items-center justify-content-center">
-                <div className="image-wrapper">
-                  <img src={item?.imageFront} alt="" />
-                  <img src={item?.imageBack} alt="" />
-                </div>
-                <div className="slider-image">
-                  <Swiper
-                    navigation={true}
-                    modules={[Navigation]}
-                    className="mySwiper"
-                  >
-                    <SwiperSlide>
-                      <div className="slider-img">
-                        <img src={item?.imageFront} alt="" />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="slider-img">
-                        <img src={item?.imageBack} alt="" />
-                      </div>
-                    </SwiperSlide>
-                  </Swiper>
-                </div>
+              <div className="col">
+                <ImageGallery
+                  items={[
+                    { original: item.imageFront, thumbnail: item.imageFront },
+                    { original: item.imageBack, thumbnail: item.imageBack },
+                  ]}
+
+                  thumbnailPosition="left"
+                  showFullscreenButton={false}
+                  showPlayButton={false}
+                  showNav={false}
+                />
               </div>
             </div>
           </div>
