@@ -19,7 +19,7 @@ const ProductList = (props: PropsType) => {
     handleCloseModal,
     EventModal,
     quantity,
-    isDisableAdd
+    isDisableAdd,
   } = useProductList();
   return (
     <>
@@ -41,14 +41,15 @@ const ProductList = (props: PropsType) => {
                     <img src={item.imageFront} className="img-front" alt="" />
                     <img src={item.imageBack} className="img-back" alt="" />
                     <div className="option">
-                      <a href="#">
+                      <a>
                         <i
                           className="fa-solid fa-link"
                           onClick={() => navigate(`/product/${item.id}`)}
                         ></i>
                       </a>
-                      <a onClick={() => props.handleWishlist(item.id)}>
+                      <a>
                         <i
+                          onClick={() => props.handleWishlist(item.id)}
                           className="fa-solid fa-heart"
                           style={{
                             color: props.wishlist.includes(item.id)
@@ -57,8 +58,11 @@ const ProductList = (props: PropsType) => {
                           }}
                         ></i>
                       </a>
-                      <a onClick={() => handleOpenModal(item)}>
-                        <i className="fa-solid fa-expand"></i>
+                      <a>
+                        <i
+                          onClick={() => handleOpenModal(item)}
+                          className="fa-solid fa-expand"
+                        ></i>
                       </a>
                     </div>
                   </div>
