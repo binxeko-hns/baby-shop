@@ -95,3 +95,9 @@ img {
     padding-top: 0px !important;
   }
 }
+
+button.image-gallery-thumbnail,
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:hover {
+  border: none;
+}
