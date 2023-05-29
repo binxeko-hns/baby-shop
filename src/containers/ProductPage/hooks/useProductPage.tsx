@@ -108,6 +108,10 @@ const useProductPage = () => {
     setProduct({ type: "DECREASE_QUANTITY", item: item });
   };
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return {
     item,
     color,

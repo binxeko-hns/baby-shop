@@ -73,8 +73,8 @@ const useProductList = () => {
       | null,
     value: {} | null
   ) => {
-    console.log(event)
-    console.log(value)
+    console.log(event);
+    console.log(value);
     setCurrentProduct({ ...currentProduct, age: value as string });
   };
 

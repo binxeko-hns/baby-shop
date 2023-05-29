@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { mockData, mockBestSellers } from "../services/mockData";
 import { useProduct } from "../../../context/product.context";
 import { CartItem } from "../../../configs/types";
@@ -32,6 +32,10 @@ const useHomePage = () => {
   const handleDecreaseItemCart = (item: CartItem) => {
     setProduct({ type: "DECREASE_QUANTITY", item: item });
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return {
     cartCount,
