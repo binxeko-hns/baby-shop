@@ -370,12 +370,12 @@ const ProductPage = () => {
               <div className="detail">
                 <h6 className="title">BIBENDUM NETUS</h6>
                 <h2 className="title">
-                  Vestibulum bibendum nulla torquent semper
+                  Vestibulum <br /> bibendum nulla <br /> torquent semper
                 </h2>
                 <h5 className="title">
                   Tristique nisi rutrum porta magna pharetra aenean proin rutrum
-                  nostra eu curabitur consequat dolor molestie auctor porta et
-                  lacus porta fusce vulputate non dui quis.
+                  nostra eu <br /> curabitur consequat dolor molestie auctor
+                  porta et lacus porta fusce <br /> vulputate non dui quis.
                 </h5>
               </div>
             </div>
@@ -383,12 +383,12 @@ const ProductPage = () => {
               <div className="detail">
                 <h6 className="title">PHASELLUS TORTOR</h6>
                 <h2 className="title">
-                  Vestibulum bibendum nulla torquent semper
+                  Vestibulum <br /> bibendum nulla <br /> torquent semper
                 </h2>
                 <h5 className="title">
                   Tristique nisi rutrum porta magna pharetra aenean proin rutrum
-                  nostra eu curabitur consequat dolor molestie auctor porta et
-                  lacus porta fusce vulputate non dui quis.
+                  nostra eu <br /> curabitur consequat dolor molestie auctor
+                  porta et lacus porta fusce <br /> vulputate non dui quis.
                 </h5>
                 <ul className="mt-5">
                   <li>

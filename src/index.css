@@ -6,6 +6,19 @@
   font-family: "Jost", sans-serif;
 }
 
+p::selection,
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+span::selection,
+a::selection,
+br::selection {
+  background-color: #EAC989;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -30,7 +43,7 @@ img {
   text-align: center;
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 10px;;
+  margin-bottom: 10px;
 }
 
 .ruler-table table tr th {
@@ -41,22 +54,20 @@ img {
   text-align: center;
   vertical-align: middle;
   background-color: #f9f9f9;
-  border-color: rgba(0,0,0,.08);
+  border-color: rgba(0, 0, 0, 0.08);
 }
 
 .ruler-table table tr:nth-child(2n) td {
   background: rgba(0, 0, 0, 0.01);
 }
 
-
 .ruler-table table tr td {
-  border-color: rgba(0,0,0,.08);
+  border-color: rgba(0, 0, 0, 0.08);
   padding: 10px;
   text-align: center;
   border-width: 1px;
   vertical-align: top;
 }
-
 
 .MuiDialog-paper {
   max-width: 100% !important;
